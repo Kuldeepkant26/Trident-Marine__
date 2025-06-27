@@ -952,7 +952,7 @@ html, body {
   }
   
   .home .hero {
-    padding-top: 0px; /* Further reduced for minimal space above video */
+    padding-top: 30px; /* Further reduced for minimal space above video */
   }
   
   /* SMALL MOBILE HERO LAYOUT - MAINTAIN VIDEO FIRST ORDER */
