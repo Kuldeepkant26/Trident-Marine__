@@ -843,8 +843,8 @@ html, body {
   }
   
   .home .hero {
-    padding-top: 100px; /* Reduced from 120px - Extra padding for mobile */
-    min-height: calc(100vh - 100px);
+    padding-top: 0px; /* Further reduced for less space above video */
+    min-height: calc(100vh - 70px);
   }
   
   /* MOBILE HERO LAYOUT - VIDEO FIRST */
@@ -952,7 +952,7 @@ html, body {
   }
   
   .home .hero {
-    padding-top: 110px; /* Reduced from 140px - Even more padding for small mobile */
+    padding-top: 0px; /* Further reduced for minimal space above video */
   }
   
   /* SMALL MOBILE HERO LAYOUT - MAINTAIN VIDEO FIRST ORDER */
