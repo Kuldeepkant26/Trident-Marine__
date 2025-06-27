@@ -36,6 +36,11 @@ function Gallery() {
   const APIFY_API_TOKEN = import.meta.env.VITE_APIFY_API_TOKEN
   const APIFY_DATASET_ID = 'NRo0lNEFVn34OEYGj'
 
+  // Check if API token is configured
+  if (!APIFY_API_TOKEN) {
+    console.error('VITE_APIFY_API_TOKEN is not configured. Please check your .env file.')
+  }
+
   // Function to determine post category based on caption/hashtags
   const categorizePost = (caption) => {
     if (!caption) return 'adventure'
@@ -69,6 +74,11 @@ function Gallery() {
     try {
       setError(null)
       setIsLoading(true)
+
+      // Check if API token is available
+      if (!APIFY_API_TOKEN) {
+        throw new Error('API token is not configured. Please check your environment variables.')
+      }
 
       const response = await fetch(
         `https://api.apify.com/v2/datasets/${APIFY_DATASET_ID}/items?token=${APIFY_API_TOKEN}&format=json&clean=true`
