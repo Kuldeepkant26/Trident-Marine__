@@ -133,24 +133,7 @@ function Signin() {
             </button>
           </form>
 
-          <div className="divider">
-            <span>or continue with</span>
-          </div>
 
-          <div className="social-signin">
-            <a href="#google" className="social-btn">
-              <i className="ri-google-fill" style={{color: '#db4437'}}></i>
-              Google
-            </a>
-            <a href="#microsoft" className="social-btn">
-              <i className="ri-microsoft-fill" style={{color: '#00a1f1'}}></i>
-              Microsoft
-            </a>
-          </div>
-
-          <div className="signup-link">
-            <p>Don't have an account? <a href="#" onClick={(e) => { e.preventDefault(); navigate('/signup'); }}>Create Account</a></p>
-          </div>
         </div>
       </div>
     </div>

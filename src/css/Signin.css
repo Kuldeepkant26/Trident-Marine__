@@ -1,7 +1,46 @@
+/* CSS Variables matching Home.css */
+:root {
+  --primary-color: #1e40af;
+  --primary-dark: #1e3a8a;
+  --secondary-color: #0ea5e9;
+  --accent-color: #06b6d4;
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --error-color: #ef4444;
+  
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --text-light: #9ca3af;
+  
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-accent: #f1f5f9;
+  
+  --border-color: #e5e7eb;
+  --border-light: #f3f4f6;
+  
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  
+  --gradient-primary: linear-gradient(135deg, #1e40af 0%, #06b6d4 100%);
+  --gradient-secondary: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
+  --gradient-accent: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  
+  --border-radius-sm: 0.375rem;
+  --border-radius-md: 0.5rem;
+  --border-radius-lg: 0.75rem;
+  --border-radius-xl: 1rem;
+  
+  --transition: all 0.3s ease;
+  --transition-fast: all 0.15s ease;
+}
+
 /* Sign In Page Styles */
 .signin-page {
     min-height: 100vh;
-    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #bae6fd 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -23,22 +62,22 @@
     align-items: center;
     gap: 0.5rem;
     padding: 0.75rem 1.5rem;
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(14, 165, 233, 0.2);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(30, 64, 175, 0.15);
     border-radius: 50px;
-    color: #0ea5e9;
-    font-weight: 500;
+    color: var(--primary-color);
+    font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(14, 165, 233, 0.1);
+    transition: var(--transition);
+    box-shadow: var(--shadow-md);
 }
 
 .signin-page .back-button:hover {
-    background: rgba(14, 165, 233, 0.1);
-    border-color: #0ea5e9;
+    background: rgba(30, 64, 175, 0.08);
+    border-color: var(--primary-color);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(14, 165, 233, 0.2);
+    box-shadow: var(--shadow-lg);
 }
 
 .signin-page .back-button i {
@@ -52,7 +91,7 @@
     left: -50%;
     width: 200%;
     height: 200%;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="waves" x="0" y="0" width="100" height="20" patternUnits="userSpaceOnUse"><path d="M0 10 Q25 0 50 10 Q75 20 100 10 V20 H0 Z" fill="%23e0f2fe" opacity="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23waves)"/></svg>') repeat;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="waves" x="0" y="0" width="100" height="20" patternUnits="userSpaceOnUse"><path d="M0 10 Q25 0 50 10 Q75 20 100 10 V20 H0 Z" fill="%231e40af" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23waves)"/></svg>') repeat;
     animation: wave-bg 20s linear infinite;
     z-index: 1;
 }
@@ -61,18 +100,19 @@
     position: relative;
     z-index: 2;
     background: white;
-    border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(14, 165, 233, 0.15);
+    border-radius: var(--border-radius-xl);
+    box-shadow: var(--shadow-xl);
     overflow: hidden;
     max-width: 1000px;
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     min-height: 600px;
+    border: 1px solid rgba(30, 64, 175, 0.08);
 }
 
 .signin-page .signin-left {
-    background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 50%, #0369a1 100%);
+    background: var(--gradient-primary);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -169,13 +209,13 @@
 .signin-page .signin-header h2 {
     font-size: 2rem;
     font-weight: 700;
-    color: #1f2937;
+    color: var(--text-primary);
     margin: 0;
     margin-bottom: 0.5rem;
 }
 
 .signin-page .signin-header p {
-    color: #6b7280;
+    color: var(--text-secondary);
     font-size: 1rem;
     margin: 0;
 }
@@ -192,8 +232,8 @@
 
 .signin-page .form-group label {
     display: block;
-    font-weight: 500;
-    color: #374151;
+    font-weight: 600;
+    color: var(--text-primary);
     margin-bottom: 0.5rem;
     font-size: 0.95rem;
 }
@@ -201,18 +241,19 @@
 .signin-page .form-group input {
     width: 100%;
     padding: 0.875rem 1rem;
-    border: 2px solid #e5e7eb;
-    border-radius: 10px;
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius-lg);
     font-size: 1rem;
-    transition: all 0.3s ease;
-    background: #f9fafb;
+    transition: var(--transition);
+    background: var(--bg-secondary);
+    color: var(--text-primary);
 }
 
 .signin-page .form-group input:focus {
     outline: none;
-    border-color: #0ea5e9;
-    background: white;
-    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+    border-color: var(--primary-color);
+    background: var(--bg-primary);
+    box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
 }
 
 .signin-page .form-group .input-icon {
@@ -220,7 +261,7 @@
     right: 1rem;
     top: 50%;
     transform: translateY(-20%);
-    color: #9ca3af;
+    color: var(--text-light);
     font-size: 1.1rem;
 }
 
@@ -236,22 +277,22 @@
     transform: translateY(-50%);
     background: none;
     border: none;
-    color: #9ca3af;
+    color: var(--text-light);
     font-size: 1.1rem;
     cursor: pointer;
     padding: 0.25rem;
-    border-radius: 4px;
-    transition: all 0.2s ease;
+    border-radius: var(--border-radius-sm);
+    transition: var(--transition);
     z-index: 1;
 }
 
 .signin-page .password-toggle:hover {
-    color: #0ea5e9;
-    background: rgba(14, 165, 233, 0.1);
+    color: var(--primary-color);
+    background: rgba(30, 64, 175, 0.08);
 }
 
 .signin-page .password-toggle:focus {
-    outline: 2px solid rgba(14, 165, 233, 0.2);
+    outline: 2px solid rgba(30, 64, 175, 0.2);
     outline-offset: 2px;
 }
 
@@ -276,111 +317,46 @@
 .signin-page .remember-me label {
     margin: 0;
     font-size: 0.9rem;
-    color: #6b7280;
+    color: var(--text-secondary);
     cursor: pointer;
+    font-weight: 500;
 }
 
 .signin-page .forgot-password {
-    color: #0ea5e9;
+    color: var(--primary-color);
     text-decoration: none;
     font-size: 0.9rem;
-    font-weight: 500;
+    font-weight: 600;
     transition: color 0.3s ease;
 }
 
 .signin-page .forgot-password:hover {
-    color: #0284c7;
+    color: var(--primary-dark);
     text-decoration: underline;
 }
 
 .signin-page .signin-btn {
-    background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+    background: var(--gradient-primary);
     color: white;
     border: none;
     padding: 1rem 2rem;
-    border-radius: 10px;
+    border-radius: var(--border-radius-lg);
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
+    transition: var(--transition);
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
 }
 
 .signin-page .signin-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(14, 165, 233, 0.4);
-    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+    box-shadow: var(--shadow-lg);
 }
 
 .signin-page .signin-btn:active {
     transform: translateY(0);
-}
-
-.signin-page .divider {
-    display: flex;
-    align-items: center;
-    margin: 1.5rem 0;
-    color: #9ca3af;
-    font-size: 0.9rem;
-}
-
-.signin-page .divider::before,
-.signin-page .divider::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: #e5e7eb;
-}
-
-.signin-page .divider span {
-    padding: 0 1rem;
-}
-
-.signin-page .social-signin {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-}
-
-.signin-page .social-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1rem;
-    border: 2px solid #e5e7eb;
-    border-radius: 10px;
-    background: white;
-    color: #374151;
-    text-decoration: none;
-    font-weight: 500;
-    transition: all 0.3s ease;
-}
-
-.signin-page .social-btn:hover {
-    border-color: #0ea5e9;
-    background: #f0f9ff;
-    transform: translateY(-1px);
-}
-
-.signin-page .signup-link {
-    text-align: center;
-    margin-top: 2rem;
-    padding-top: 2rem;
-    border-top: 1px solid #e5e7eb;
-    color: #6b7280;
-}
-
-.signin-page .signup-link a {
-    color: #0ea5e9;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s ease;
-}
-
-.signin-page .signup-link a:hover {
-    color: #0284c7;
-    text-decoration: underline;
 }
 
 /* Animations */
@@ -445,10 +421,6 @@
 
     .signin-page .signin-right {
         padding: 2rem;
-    }
-
-    .signin-page .social-signin {
-        grid-template-columns: 1fr;
     }
 }
 

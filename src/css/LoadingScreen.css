@@ -1,0 +1,443 @@
+/* Loading Screen Styles */
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 25%, #cbd5e1 50%, #e2e8f0 75%, #f8fafc 100%);
+  background-size: 400% 400%;
+  animation: loadingGradientShift 8s ease infinite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  overflow: hidden;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Animated Background Elements */
+.loading-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.loading-wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200%;
+  height: 200px;
+  background: linear-gradient(90deg, transparent, rgba(30, 64, 175, 0.15), transparent);
+  border-radius: 50% 50% 0 0;
+  animation: loadingWaveMove 6s ease-in-out infinite;
+}
+
+.loading-wave-1 {
+  animation-delay: 0s;
+  opacity: 0.3;
+}
+
+.loading-wave-2 {
+  animation-delay: -2s;
+  opacity: 0.2;
+  height: 150px;
+}
+
+.loading-wave-3 {
+  animation-delay: -4s;
+  opacity: 0.1;
+  height: 100px;
+}
+
+.loading-gradient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  animation: loadingOrbFloat 8s ease-in-out infinite;
+}
+
+.loading-orb-1 {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(30, 64, 175, 0.15) 0%, transparent 70%);
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.loading-orb-2 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.1) 0%, transparent 70%);
+  top: 60%;
+  right: 10%;
+  animation-delay: -3s;
+}
+
+.loading-orb-3 {
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.12) 0%, transparent 70%);
+  bottom: 20%;
+  left: 50%;
+  animation-delay: -6s;
+}
+
+/* Main Content */
+.loading-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  text-align: center;
+}
+
+/* Logo Container */
+.loading-logo-container {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.loading-logo-inner {
+  position: relative;
+  z-index: 2;
+}
+
+.loading-logo-bg {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 2rem;
+  border-radius: 50%;
+  backdrop-filter: blur(15px);
+  border: 2px solid rgba(30, 64, 175, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    0 8px 32px rgba(30, 64, 175, 0.15),
+    0 0 0 1px rgba(30, 64, 175, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  position: relative;
+  overflow: hidden;
+}
+
+.loading-logo-bg::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg, transparent, rgba(30, 64, 175, 0.1), transparent);
+  animation: loadingLogoRotate 3s linear infinite;
+}
+
+.loading-logo-bg svg {
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+/* Floating Particles */
+.loading-particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, rgba(30, 64, 175, 0.6) 0%, rgba(6, 182, 212, 0.3) 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(30, 64, 175, 0.4);
+}
+
+/* Brand Name */
+.loading-brand {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.loading-brand-name {
+  font-size: 3rem;
+  font-weight: 900;
+  margin: 0;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.loading-brand-part {
+  display: inline-block;
+  color: #1e293b;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.loading-brand-accent {
+  background: linear-gradient(135deg, #1e40af 0%, #06b6d4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-left: 0.5rem;
+}
+
+.loading-brand-line {
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #1e40af, #06b6d4, transparent);
+  border-radius: 2px;
+  margin-top: 0.5rem;
+  box-shadow: 0 0 10px rgba(30, 64, 175, 0.5);
+}
+
+/* Loading Text */
+.loading-text-container {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.loading-text {
+  font-size: 1.125rem;
+  color: rgba(30, 41, 59, 0.8);
+  font-weight: 500;
+  margin: 0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Progress Bar */
+.loading-progress-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.loading-progress-track {
+  position: relative;
+  width: 300px;
+  height: 4px;
+  background: rgba(203, 213, 225, 0.4);
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.loading-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #1e40af, #06b6d4, #3b82f6);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+  position: relative;
+  box-shadow: 0 0 10px rgba(30, 64, 175, 0.6);
+}
+
+.loading-progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: loadingProgressShine 2s ease infinite;
+}
+
+.loading-progress-glow {
+  position: absolute;
+  top: -2px;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.8) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translateX(-50%);
+  filter: blur(2px);
+  animation: loadingProgressPulse 1s ease infinite;
+}
+
+.loading-progress-text {
+  font-size: 0.875rem;
+  color: rgba(30, 41, 59, 0.7);
+  font-weight: 600;
+  min-width: 40px;
+  text-align: center;
+}
+
+/* Loading Dots */
+.loading-dots {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.loading-dot {
+  width: 8px;
+  height: 8px;
+  background: linear-gradient(45deg, #1e40af, #06b6d4);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(30, 64, 175, 0.5);
+}
+
+/* Bottom Tagline */
+.loading-tagline {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.loading-tagline p {
+  font-size: 0.875rem;
+  color: rgba(30, 41, 59, 0.6);
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Animations */
+@keyframes loadingGradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes loadingWaveMove {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0px);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-20px);
+  }
+}
+
+@keyframes loadingOrbFloat {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  33% {
+    transform: translateY(-30px) scale(1.1);
+  }
+  66% {
+    transform: translateY(15px) scale(0.9);
+  }
+}
+
+@keyframes loadingLogoRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loadingProgressShine {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes loadingProgressPulse {
+  0%, 100% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateX(-50%) scale(1.2);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .loading-brand-name {
+    font-size: 2.5rem;
+  }
+  
+  .loading-progress-track {
+    width: 250px;
+  }
+  
+  .loading-logo-container {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .loading-logo-bg {
+    padding: 1.5rem;
+  }
+  
+  .loading-logo-bg svg {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .loading-brand-name {
+    font-size: 2rem;
+  }
+  
+  .loading-progress-track {
+    width: 200px;
+  }
+  
+  .loading-text {
+    font-size: 1rem;
+    text-align: center;
+    padding: 0 1rem;
+  }
+  
+  .loading-tagline {
+    bottom: 2rem;
+    padding: 0 1rem;
+  }
+  
+  .loading-tagline p {
+    font-size: 0.75rem;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .loading-screen {
+    animation: none;
+  }
+  
+  .loading-wave,
+  .loading-gradient-orb,
+  .loading-logo-bg::before,
+  .loading-progress-fill::after,
+  .loading-progress-glow {
+    animation: none;
+  }
+  
+  .loading-logo-inner {
+    animation: none;
+  }
+  
+  .loading-particle {
+    animation: none;
+    opacity: 0;
+  }
+  
+  .loading-dot {
+    animation: none;
+    opacity: 1;
+  }
+}
