@@ -262,7 +262,9 @@
 
 .hero-header {
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   gap: 1.5rem;
   margin-bottom: 2rem;
 }
@@ -386,6 +388,7 @@
 
 .hero-actions {
   display: flex;
+  justify-content: center;
   gap: 1rem;
   flex-wrap: wrap;
 }
@@ -1427,9 +1430,6 @@
   }
   
   .hero-header {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
     gap: 1rem;
   }
   
