@@ -13,10 +13,10 @@ const servicesList = [
 ];
 
 const programList = [
-  'Yacht Program',
-  'Charter Program',
-  'Training Program',
-  'Safety Program',
+  'Entry Program',
+  'Moderate Program',
+  'Signature Program',
+  'Sportfish Program',
   'All Programs',
 ];
 
@@ -25,27 +25,68 @@ function Navbar() {
   const [dropdown, setDropdown] = useState('');
   const [sidebarDropdown, setSidebarDropdown] = useState('');
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isNavbarVisible, setIsNavbarVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const [dropdownTimeout, setDropdownTimeout] = useState(null);
   const navigate = useNavigate();
   const location = useLocation();
   useEffect(() => {
+    let ticking = false;
+    
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const currentScrollY = window.scrollY;
+          
+          // Update scrolled state for styling
+          setIsScrolled(currentScrollY > 10);
+          
+          // Auto-hide logic with more precise control
+          if (currentScrollY < 10) {
+            // At top of page - always show navbar
+            setIsNavbarVisible(true);
+          } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+            // Scrolling down and past threshold - hide navbar
+            setIsNavbarVisible(false);
+            // Close any open dropdowns when hiding
+            setDropdown('');
+          } else if (currentScrollY < lastScrollY) {
+            // Scrolling up - show navbar
+            setIsNavbarVisible(true);
+          }
+          
+          setLastScrollY(currentScrollY);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    const handleMouseMove = (e) => {
+      // Show navbar when mouse is near the top of the screen
+      if (e.clientY <= 50 && window.scrollY > 100) {
+        setIsNavbarVisible(true);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
     
     // Cleanup timeout on unmount
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('mousemove', handleMouseMove);
       if (dropdownTimeout) {
         clearTimeout(dropdownTimeout);
       }
     };
-  }, [dropdownTimeout]);
+  }, [lastScrollY, dropdownTimeout]);
 
   // Desktop dropdown handlers with improved UX
   const handleDropdown = (menu) => {
+    // Don't open dropdown if navbar is hidden
+    if (!isNavbarVisible) return;
+    
     if (dropdownTimeout) {
       clearTimeout(dropdownTimeout);
       setDropdownTimeout(null);
@@ -60,12 +101,53 @@ function Navbar() {
     setDropdownTimeout(timeout);
   };
 
+  // Handle service navigation
+  const handleServiceNavigation = (service) => {
+    if (service === 'All Services') {
+      navigate('/services');
+    } else {
+      // Map service names to their correct IDs
+      const serviceMapping = {
+        'Interior': 'interior',
+        'Interior Design & Maintenance': 'interior',
+        'Exterior': 'exterior',
+        'Exterior Maintenance': 'exterior',
+        'Maintenance': 'maintenance',
+        'General Maintenance': 'maintenance',
+        'Project Management': 'management',
+        'Captain & Crew': 'crew',
+        'Captain & Crew Services': 'crew',
+        'Concierge': 'concierge',
+        'Concierge Services': 'concierge'
+      };
+      
+      const serviceId = serviceMapping[service] || service.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-');
+      navigate(`/services/${serviceId}`);
+    }
+  };  // Handle program navigation
+  const handleProgramNavigation = (program) => {
+    if (program === 'All Programs') {
+      navigate('/programs');
+    } else {
+      // Map program names to their correct IDs
+      const programMapping = {
+        'Entry Program': 'entry',
+        'Moderate Program': 'moderate',
+        'Signature Program': 'signature',
+        'Sportfish Program': 'sportfish'
+      };
+      
+      const programId = programMapping[program] || program.toLowerCase().replace(/ program/g, '').replace(/ /g, '-');
+      navigate(`/programs/${programId}`);
+    }
+  };
+
   // Sidebar submenu toggle
   const handleSidebarDropdown = (menu) => setSidebarDropdown(menu === sidebarDropdown ? '' : menu);
 
   return (
     <>
-      <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
+      <nav className={`navbar ${isScrolled ? 'scrolled' : ''} ${isNavbarVisible ? 'navbar-visible' : 'navbar-hidden'}`}>
         <div className="navbar-container">
           {/* Logo (always left) */}
           <div className="navbar-logo">
@@ -90,7 +172,16 @@ function Navbar() {
                 onMouseLeave={handleDropdownLeave}
               >
                 {servicesList.map((item, idx) => (
-                  <div className="dropdown-item" key={idx}>{item}</div>
+                  <div 
+                    className="dropdown-item" 
+                    key={idx}
+                    onClick={() => {
+                      handleServiceNavigation(item);
+                      setDropdown('');
+                    }}
+                  >
+                    {item}
+                  </div>
                 ))}
               </div>
             </li>
@@ -106,7 +197,16 @@ function Navbar() {
                 onMouseLeave={handleDropdownLeave}
               >
                 {programList.map((item, idx) => (
-                  <div className="dropdown-item" key={idx}>{item}</div>
+                  <div 
+                    className="dropdown-item" 
+                    key={idx}
+                    onClick={() => {
+                      handleProgramNavigation(item);
+                      setDropdown('');
+                    }}
+                  >
+                    {item}
+                  </div>
                 ))}
               </div>
             </li>
@@ -120,7 +220,9 @@ function Navbar() {
                 <span>About</span>
               </li>
             )}
-            <li className="nav-item nav-anim"><span>Contact</span></li>
+            <li className="nav-item nav-anim" onClick={() => navigate('/contact')}>
+              <span>Contact</span>
+            </li>
             <li className="nav-item nav-anim nav-login">
               <button className="login-btn desktop-login" onClick={()=>navigate('/signin')}>
                 <i className="ri-user-line"></i>
@@ -184,7 +286,10 @@ function Navbar() {
                 <div 
                   className="sidebar-dropdown-item" 
                   key={idx}
-                  onClick={() => setIsSidebarOpen(false)}
+                  onClick={() => {
+                    handleServiceNavigation(item);
+                    setIsSidebarOpen(false);
+                  }}
                 >
                   {item}
                 </div>
@@ -204,7 +309,10 @@ function Navbar() {
                 <div 
                   className="sidebar-dropdown-item" 
                   key={idx}
-                  onClick={() => setIsSidebarOpen(false)}
+                  onClick={() => {
+                    handleProgramNavigation(item);
+                    setIsSidebarOpen(false);
+                  }}
                 >
                   {item}
                 </div>
@@ -226,7 +334,12 @@ function Navbar() {
                 About
               </div>
             )}
-            <div className="sidebar-link sidebar-anim" onClick={() => setIsSidebarOpen(false)}>Contact</div>
+            <div className="sidebar-link sidebar-anim" onClick={() => {
+              navigate('/contact')
+              setIsSidebarOpen(false)
+            }}>
+              Contact
+            </div>
           </nav>
         </div>
       </div>

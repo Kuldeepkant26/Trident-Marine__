@@ -10,6 +10,11 @@ import Signin from './pages/Signin'
 import Signup from './pages/Signup'
 import About from './pages/About'
 import Gallery from './pages/Gallery'
+import Contact from './pages/Contact'
+import Services from './pages/Services'
+import ServiceDetail from './pages/ServiceDetail'
+import Programs from './pages/Programs'
+import ProgramDetail from './pages/ProgramDetail'
 
 function App() {
   const location = useLocation();
@@ -52,6 +57,11 @@ function App() {
           <Route path='/signup' element={<Signup/>}></Route>
           <Route path='/about' element={<About/>}></Route>
           <Route path='/gallery' element={<Gallery/>}></Route>
+          <Route path='/contact' element={<Contact/>}></Route>
+          <Route path='/services' element={<Services/>}></Route>
+          <Route path='/services/:serviceId' element={<ServiceDetail/>}></Route>
+          <Route path='/programs' element={<Programs/>}></Route>
+          <Route path='/programs/:programId' element={<ProgramDetail/>}></Route>
         </Routes>
         {shouldShowNavbar && <Footer />}
       </div>

@@ -30,6 +30,17 @@ function About() {
   const [isVisible, setIsVisible] = useState({})
   const [currentSlide, setCurrentSlide] = useState(0)
 
+  // Smooth scroll function to next section
+  const scrollToNextSection = () => {
+    const storySection = document.getElementById('story')
+    if (storySection) {
+      storySection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      })
+    }
+  }
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -248,7 +259,7 @@ function About() {
         </div>
 
         <div className="about-hero-scroll">
-          <div className="about-scroll-indicator">
+          <div className="about-scroll-indicator" onClick={scrollToNextSection}>
             <ArrowRight className="about-scroll-arrow" />
           </div>
         </div>

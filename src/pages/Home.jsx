@@ -15,7 +15,8 @@ import {
   Star,
   Clock,
   Award,
-  Globe
+  Globe,
+  Zap
 } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import '../css/Home.css'
@@ -545,43 +546,34 @@ function Home() {
 
       {/* CTA Section */}
       <section className="cta-section">
-        <div className="container">
-          <motion.div 
-            className="cta-content"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="cta-title">Ready to Organize Your Boat Fleet?</h2>
+        <motion.div 
+          className="cta-content"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="cta-hero">
+            <h2 className="cta-title">Ready to Transform Your Fleet Management?</h2>
             <p className="cta-subtitle">
-              Join marine professionals who use Trident Marine to manage their boat data, track services, and handle repairs efficiently
+              Join marine professionals who trust Trident Marine to streamline operations, 
+              reduce costs, and deliver exceptional service.
             </p>
+            
             <div className="cta-buttons">
               <button className="btn-primary" onClick={() => navigate('/signup')}>
                 Start Free Trial
                 <ArrowRight size={20} />
               </button>
-              <button className="btn-outline">
+              <button className="btn-outline" onClick={() => navigate('/contact')}>
                 Schedule Demo
+                <Play size={18} />
               </button>
             </div>
-            <div className="cta-features">
-              <div className="cta-feature">
-                <CheckCircle size={16} />
-                <span>Free 30-day trial</span>
-              </div>
-              <div className="cta-feature">
-                <CheckCircle size={16} />
-                <span>No credit card required</span>
-              </div>
-              <div className="cta-feature">
-                <CheckCircle size={16} />
-                <span>Full feature access</span>
-              </div>
-            </div>
-          </motion.div>
-        </div>
+          </div>
+
+        
+        </motion.div>
       </section>
    
     </div>
