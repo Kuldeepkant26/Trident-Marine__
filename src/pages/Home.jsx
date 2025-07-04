@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, useContext } from 'react'
 import { motion } from 'framer-motion'
 import { 
   Ship, 
@@ -21,8 +21,10 @@ import {
 import { useNavigate } from 'react-router-dom'
 import '../css/Home.css'
 import Footer from '../components/Footer'
+import { UserContext } from '../Context/UserProvider'
 
 function Home() {
+
   const navigate = useNavigate()
   const [currentTestimonial, setCurrentTestimonial] = useState(0)
   const containerRef = useRef(null)
@@ -34,7 +36,7 @@ function Home() {
   const [videoError, setVideoError] = useState(false)
   
   const [isMobileView, setIsMobileView] = useState(false)
-
+  const {testvar}=useContext(UserContext)
   const testimonials = [
     {
       name: "Captain James Rodriguez",

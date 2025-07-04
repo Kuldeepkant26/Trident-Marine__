@@ -57,17 +57,7 @@ function Footer() {
   return (
     <footer className="footer">
       {/* Scroll to Top Button */}
-      <motion.button 
-        className="scroll-to-top"
-        onClick={scrollToTop}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1 }}
-      >
-        <ArrowUp size={20} />
-      </motion.button>
+     
 
       {/* Main Footer Content */}
       <motion.div 
@@ -84,7 +74,7 @@ function Footer() {
             <motion.div className="footer-section" variants={itemVariants}>
               <div className="footer-logo">
                 <Ship size={32} />
-                <span className="logo-text">Trident Marine</span>
+                <span className="footer-logo-text">Trident Marine</span>
               </div>
               <p className="footer-description">
                 Professional boat fleet management solution designed to streamline your marine operations. 
@@ -214,9 +204,9 @@ function Footer() {
             {/* Contact Info */}
             <motion.div className="footer-section" variants={itemVariants}>
               <h4 className="footer-title">Get in Touch</h4>
-              <div className="contact-info">
+              <div className="footer-contact-info">
                 <motion.div 
-                  className="contact-item"
+                  className="footer-contact-item"
                   whileHover={{ scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
@@ -227,7 +217,7 @@ function Footer() {
                   </div>
                 </motion.div>
                 <motion.div 
-                  className="contact-item"
+                  className="footer-contact-item"
                   whileHover={{ scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
@@ -238,7 +228,7 @@ function Footer() {
                   </div>
                 </motion.div>
                 <motion.div 
-                  className="contact-item"
+                  className="footer-contact-item"
                   whileHover={{ scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
@@ -249,7 +239,7 @@ function Footer() {
                   </div>
                 </motion.div>
                 <motion.div 
-                  className="contact-item"
+                  className="footer-contact-item"
                   whileHover={{ scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
@@ -280,7 +270,7 @@ function Footer() {
               <div className="footer-legal">
                 <motion.a 
                   href="#"
-                  whileHover={{ color: "#0ea5e9" }}
+                  whileHover={{ color: "#D4AF37" }}
                   transition={{ duration: 0.2 }}
                 >
                   Privacy Policy
@@ -288,7 +278,7 @@ function Footer() {
                 <span>|</span>
                 <motion.a 
                   href="#"
-                  whileHover={{ color: "#0ea5e9" }}
+                  whileHover={{ color: "#D4AF37" }}
                   transition={{ duration: 0.2 }}
                 >
                   Terms of Service
@@ -296,7 +286,7 @@ function Footer() {
                 <span>|</span>
                 <motion.a 
                   href="#"
-                  whileHover={{ color: "#0ea5e9" }}
+                  whileHover={{ color: "#D4AF37" }}
                   transition={{ duration: 0.2 }}
                 >
                   Cookie Policy
@@ -304,10 +294,10 @@ function Footer() {
               </div>
             </div>
             <div className="footer-bottom-right">
-              <div className="social-links">
+              <div className="footer-social-links">
                 <motion.a 
                   href="#" 
-                  className="social-link"
+                  className="footer-social-link"
                   variants={socialVariants}
                   whileHover="hover"
                 >
@@ -315,7 +305,7 @@ function Footer() {
                 </motion.a>
                 <motion.a 
                   href="#" 
-                  className="social-link"
+                  className="footer-social-link"
                   variants={socialVariants}
                   whileHover="hover"
                 >
@@ -323,7 +313,7 @@ function Footer() {
                 </motion.a>
                 <motion.a 
                   href="#" 
-                  className="social-link"
+                  className="footer-social-link"
                   variants={socialVariants}
                   whileHover="hover"
                 >
@@ -331,7 +321,7 @@ function Footer() {
                 </motion.a>
                 <motion.a 
                   href="#" 
-                  className="social-link"
+                  className="footer-social-link"
                   variants={socialVariants}
                   whileHover="hover"
                 >
@@ -346,7 +336,7 @@ function Footer() {
       {/* Animated Background Elements */}
       <div className="footer-bg-elements">
         <motion.div 
-          className="bg-wave"
+          className="footer-bg-wave"
           animate={{ 
             x: [0, 50, 0],
             y: [0, -20, 0]
@@ -358,7 +348,7 @@ function Footer() {
           }}
         />
         <motion.div 
-          className="bg-circle"
+          className="footer-bg-circle"
           animate={{ 
             scale: [1, 1.2, 1],
             rotate: [0, 180, 360]

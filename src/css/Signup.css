@@ -9,8 +9,8 @@
   position: relative;
   overflow: hidden;
   /* Override body padding for signup page */
-  margin-top: -70px;
-  padding-top: calc(2rem);
+  margin-top: 0;
+  padding-top: 2rem;
 }
 
 /* Back Button */
@@ -480,7 +480,7 @@
   .signup-page {
     padding: 1rem;
     padding-top: 4rem;
-    margin-top: -70px;
+    margin-top: 0;
   }
   
   .signup-page .signup-container {

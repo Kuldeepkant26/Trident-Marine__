@@ -580,33 +580,7 @@ function About() {
       </section>
 
       {/* CTA Section */}
-      <section className="about-cta-section">
-        <div className="about-cta-background"></div>
-        <div className="about-container">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="about-cta-content"
-          >
-            <h2 className="about-cta-title">Ready to Set Sail?</h2>
-            <p className="about-cta-subtitle">
-              Experience the luxury of Seychelles waters with our professional team and premium yacht fleet.
-            </p>
-            <div className="about-cta-buttons">
-              <button className="about-btn about-btn-primary">
-                <Calendar className="about-btn-icon" />
-                Book Your Charter
-              </button>
-              <button className="about-btn about-btn-secondary">
-                <Phone className="about-btn-icon" />
-                Contact Us
-              </button>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+   
 
     
     </div>

@@ -15,10 +15,12 @@ import Services from './pages/Services'
 import ServiceDetail from './pages/ServiceDetail'
 import Programs from './pages/Programs'
 import ProgramDetail from './pages/ProgramDetail'
+import Dashboard from './pages/Dashboard'
+import Home2 from './pages/Home2'
 
 function App() {
   const location = useLocation();
-  const hideNavbarRoutes = ['/signin', '/signup'];
+  const hideNavbarRoutes = ['/signin', '/signup', '/dashboard'];
   const shouldShowNavbar = !hideNavbarRoutes.includes(location.pathname);
   
   // Loading screen state - show on every page load/refresh
@@ -48,21 +50,28 @@ function App() {
       )}
       
       {/* Main App Content - always render but conditionally hide */}
-      <div style={{ display: showLoadingScreen ? 'none' : 'block' }}>
+      <div style={{ 
+        display: showLoadingScreen ? 'none' : 'block'
+      }}>
         <ScrollToTop />
         {shouldShowNavbar && <Navbar />}
-        <Routes>
-          <Route path='/' element={<Home />}></Route>
-          <Route path='/signin' element={<Signin/>}></Route>
-          <Route path='/signup' element={<Signup/>}></Route>
-          <Route path='/about' element={<About/>}></Route>
-          <Route path='/gallery' element={<Gallery/>}></Route>
-          <Route path='/contact' element={<Contact/>}></Route>
-          <Route path='/services' element={<Services/>}></Route>
-          <Route path='/services/:serviceId' element={<ServiceDetail/>}></Route>
-          <Route path='/programs' element={<Programs/>}></Route>
-          <Route path='/programs/:programId' element={<ProgramDetail/>}></Route>
-        </Routes>
+        <div style={{ 
+          paddingTop: shouldShowNavbar ? '0' : '0'
+        }}>
+          <Routes>
+            <Route path='/' element={<Home2 />}></Route>
+            <Route path='/signin' element={<Signin/>}></Route>
+            <Route path='/signup' element={<Signup/>}></Route>
+            <Route path='/about' element={<About/>}></Route>
+            <Route path='/gallery' element={<Gallery/>}></Route>
+            <Route path='/contact' element={<Contact/>}></Route>
+            <Route path='/services' element={<Services/>}></Route>
+            <Route path='/services/:serviceId' element={<ServiceDetail/>}></Route>
+            <Route path='/programs' element={<Programs/>}></Route>
+            <Route path='/programs/:programId' element={<ProgramDetail/>}></Route>
+            <Route path='/dashboard' element={<Dashboard/>}></Route>
+          </Routes>
+        </div>
         {shouldShowNavbar && <Footer />}
       </div>
     </div>

@@ -210,16 +210,12 @@ function Navbar() {
                 ))}
               </div>
             </li>
-            {location.pathname !== '/gallery' && (
-              <li className="nav-item nav-anim" onClick={() => navigate('/gallery')}>
-                <span>Gallery</span>
-              </li>
-            )}
-            {location.pathname !== '/about' && (
-              <li className="nav-item nav-anim" onClick={() => navigate('/about')}>
-                <span>About</span>
-              </li>
-            )}
+            <li className="nav-item nav-anim" onClick={() => navigate('/gallery')}>
+              <span>Gallery</span>
+            </li>
+            <li className="nav-item nav-anim" onClick={() => navigate('/about')}>
+              <span>About</span>
+            </li>
             <li className="nav-item nav-anim" onClick={() => navigate('/contact')}>
               <span>Contact</span>
             </li>
@@ -318,22 +314,18 @@ function Navbar() {
                 </div>
               ))}
             </div>
-            {location.pathname !== '/gallery' && (
-              <div className="sidebar-link sidebar-anim" onClick={() => {
-                navigate('/gallery')
-                setIsSidebarOpen(false)
-              }}>
-                Gallery
-              </div>
-            )}
-            {location.pathname !== '/about' && (
-              <div className="sidebar-link sidebar-anim" onClick={() => {
-                navigate('/about')
-                setIsSidebarOpen(false)
-              }}>
-                About
-              </div>
-            )}
+            <div className="sidebar-link sidebar-anim" onClick={() => {
+              navigate('/gallery')
+              setIsSidebarOpen(false)
+            }}>
+              Gallery
+            </div>
+            <div className="sidebar-link sidebar-anim" onClick={() => {
+              navigate('/about')
+              setIsSidebarOpen(false)
+            }}>
+              About
+            </div>
             <div className="sidebar-link sidebar-anim" onClick={() => {
               navigate('/contact')
               setIsSidebarOpen(false)

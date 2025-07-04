@@ -1,23 +1,21 @@
 /* Navbar Styles */
 .navbar {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(229, 231, 235, 0.3);
-  box-shadow: 
-    0 1px 3px 0 rgba(0, 0, 0, 0.1),
-    0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  background: transparent;
+  backdrop-filter: none;
+  border-bottom: none;
+  box-shadow: none;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
-  height: 75px;
+  height: auto;
+  min-height: 60px;
   transition: 
     transform 0.7s cubic-bezier(0.23, 1, 0.32, 1),
     opacity 0.7s cubic-bezier(0.23, 1, 0.32, 1),
     background 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-    height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform, opacity;
   transform-origin: top center;
 }
@@ -36,22 +34,19 @@
 
 /* Enhanced scrolled state with smoother transition */
 .navbar.scrolled {
-  background: rgba(255, 255, 255, 0.98);
-  box-shadow: 
-    0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  height: 70px;
+  background: transparent;
+  box-shadow: none;
+  min-height: 60px;
 }
 
 .navbar-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100%;
+  height: auto;
   width: 100%;
   margin: 0 auto;
-  padding-right: 4rem;
-  padding-left: 1rem;
+  padding: 1rem 4rem 1rem 1rem;
 }
 
 .navbar-left {
@@ -108,9 +103,9 @@
   font-family: 'Poppins', sans-serif;
   font-size: 26px;
   font-weight: 800;
-  color: #1e40af;
+  color: #004B49;
   letter-spacing: -0.025em;
-  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #6366f1 100%);
+  background: linear-gradient(135deg, #004B49 0%, #D4AF37 50%, #C5A95D 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -121,7 +116,7 @@
 
 .navbar-container .logo-text:hover {
   transform: scale(1.05);
-  filter: drop-shadow(0 4px 8px rgba(30, 64, 175, 0.2));
+  filter: drop-shadow(0 4px 8px rgba(212, 175, 55, 0.3));
 }
 
 .navbar-container .logo-text::after {
@@ -131,7 +126,7 @@
   left: 0;
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, #1e40af, #3b82f6);
+  background: linear-gradient(90deg, #004B49, #D4AF37);
   transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -145,8 +140,8 @@
   align-items: center;
   gap: 8px;
   padding: 12px 24px;
-  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #6366f1 100%);
-  color: white;
+  background: linear-gradient(135deg, #D4AF37 0%, #C5A95D 50%, #D4C290 100%);
+  color: #004B49;
   border: none;
   border-radius: 12px;
   font-weight: 600;
@@ -155,7 +150,7 @@
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 
-    0 4px 12px rgba(30, 64, 175, 0.3),
+    0 4px 12px rgba(212, 175, 55, 0.3),
     0 2px 4px rgba(0, 0, 0, 0.1);
   position: relative;
   overflow: hidden;
@@ -176,9 +171,9 @@
 .login-btn:hover {
   transform: translateY(-2px) scale(1.02);
   box-shadow: 
-    0 8px 25px rgba(30, 64, 175, 0.4),
+    0 8px 25px rgba(212, 175, 55, 0.4),
     0 4px 12px rgba(0, 0, 0, 0.15);
-  background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 50%, #4f46e5 100%);
+  background: linear-gradient(135deg, #C5A95D 0%, #D4C290 50%, #D4AF37 100%);
 }
 
 .login-btn:hover::before {
@@ -218,7 +213,7 @@
 
 /* Enhanced hover state for mobile login */
 .mobile-login:hover {
-  background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 50%, #4f46e5 100%);
+  background: linear-gradient(135deg, #C5A95D 0%, #D4C290 50%, #D4AF37 100%);
   transform: translateY(-1px) scale(1.02);
 }
 
@@ -246,8 +241,8 @@
   padding: 16px 24px !important;
   margin: 8px 12px;
   border-radius: 12px;
-  background: linear-gradient(135deg, rgba(30, 64, 175, 0.05), rgba(99, 102, 241, 0.05));
-  border-left: 3px solid #1e40af !important;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.05), rgba(212, 194, 144, 0.05));
+  border-left: 3px solid #D4AF37 !important;
   justify-content: center;
 }
 
@@ -260,9 +255,9 @@
 }
 
 .mobile-login-container:hover {
-  background: linear-gradient(135deg, rgba(30, 64, 175, 0.08), rgba(99, 102, 241, 0.08));
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.08), rgba(212, 194, 144, 0.08));
   transform: translateX(0) !important;
-  box-shadow: 0 4px 12px rgba(30, 64, 175, 0.15);
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.15);
 }
 
 /* Sign In Button */
@@ -276,8 +271,8 @@
   align-items: center;
   gap: 8px;
   padding: 10px 20px;
-  background: #1e40af;
-  color: white;
+  background: #D4AF37;
+  color: #004B49;
   border: none;
   border-radius: 8px;
   font-weight: 500;
@@ -288,9 +283,9 @@
 }
 
 .navbar-container .signin-btn:hover {
-  background: #1d4ed8;
+  background: #C5A95D;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px 0 rgba(30, 64, 175, 0.3);
+  box-shadow: 0 4px 12px 0 rgba(212, 175, 55, 0.3);
 }
 
 .navbar-container .signin-btn:active {
@@ -318,7 +313,7 @@
   font-family: 'Poppins', sans-serif;
   font-size: 1.08rem;
   font-weight: 500;
-  color: #1e293b;
+  color: white;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   padding: 16px 20px;
@@ -336,7 +331,7 @@
   left: 0;
   width: 0;
   height: 100%;
-  background: linear-gradient(90deg, rgba(30, 64, 175, 0.06), rgba(99, 102, 241, 0.06));
+  background: linear-gradient(90deg, rgba(212, 175, 55, 0.06), rgba(212, 194, 144, 0.06));
   transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: -1;
   border-radius: 12px;
@@ -347,9 +342,9 @@
 }
 
 .nav-item.nav-anim:hover {
-  color: #1e40af;
+  color: #C5A95D;
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(30, 64, 175, 0.12);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.12);
 }
 
 .nav-item.nav-anim:hover::before {
@@ -381,14 +376,14 @@
   transform: translateX(-50%) translateY(20px) scale(0.9);
   top: calc(100% + 5px);
   min-width: 260px;
-  background: rgba(255, 255, 255, 0.98);
+  background: rgba(250, 249, 246, 0.98);
   backdrop-filter: blur(25px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(245, 245, 245, 0.3);
   border-radius: 18px;
   box-shadow: 
     0 25px 50px -12px rgba(0, 0, 0, 0.25),
     0 20px 25px -5px rgba(0, 0, 0, 0.1),
-    0 0 0 1px rgba(255, 255, 255, 0.1);
+    0 0 0 1px rgba(245, 245, 245, 0.1);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -406,9 +401,9 @@
   transform: translateX(-50%);
   width: 20px;
   height: 20px;
-  background: rgba(255, 255, 255, 0.98);
+  background: rgba(250, 249, 246, 0.98);
   backdrop-filter: blur(25px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(245, 245, 245, 0.3);
   border-bottom: none;
   border-right: none;
   rotate: 45deg;
@@ -451,7 +446,7 @@
 
 .dropdown-item {
   padding: 14px 18px;
-  color: #1e293b;
+  color: #004B49;
   font-size: 0.95rem;
   font-weight: 500;
   cursor: pointer;
@@ -470,16 +465,16 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, rgba(30, 64, 175, 0.08), rgba(99, 102, 241, 0.08));
+  background: linear-gradient(90deg, rgba(212, 175, 55, 0.08), rgba(212, 194, 144, 0.08));
   transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: -1;
 }
 
 .dropdown-item:hover {
-  color: #1e40af;
+  color: #D4AF37;
   transform: translateX(6px) scale(1.02);
-  box-shadow: 0 8px 25px rgba(30, 64, 175, 0.15);
-  background: rgba(224, 231, 255, 0.2);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.15);
+  background: rgba(212, 194, 144, 0.2);
 }
 
 .dropdown-item:hover::before {
@@ -498,9 +493,9 @@
   left: -320px;
   width: 320px;
   height: 100vh;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(250, 249, 246, 0.95);
   backdrop-filter: blur(20px);
-  border-right: 1px solid rgba(229, 231, 235, 0.3);
+  border-right: 1px solid rgba(245, 245, 245, 0.3);
   box-shadow: 
     4px 0 25px -5px rgba(0, 0, 0, 0.1),
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
@@ -522,17 +517,17 @@
   align-items: center;
   justify-content: space-between;
   padding: 20px 24px;
-  border-bottom: 1px solid rgba(229, 231, 235, 0.3);
-  background: linear-gradient(90deg, rgba(30, 64, 175, 0.02), rgba(59, 130, 246, 0.02));
+  border-bottom: 1px solid rgba(245, 245, 245, 0.3);
+  background: linear-gradient(90deg, rgba(212, 175, 55, 0.02), rgba(212, 194, 144, 0.02));
 }
 
 .sidebar .sidebar-header h3 {
   margin: 0;
-  color: #1f2937;
+  color: #004B49;
   font-size: 20px;
   font-weight: 700;
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+  background: linear-gradient(135deg, #004B49 0%, #D4AF37 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -593,7 +588,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 16px 24px;
-  color: #374151;
+  color: #004B49;
   text-decoration: none;
   font-weight: 500;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -614,7 +609,7 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, rgba(30, 64, 175, 0.05), rgba(59, 130, 246, 0.05));
+  background: linear-gradient(90deg, rgba(212, 175, 55, 0.05), rgba(212, 194, 144, 0.05));
   transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -623,11 +618,11 @@
 }
 
 .sidebar-link.sidebar-anim:hover {
-  background: rgba(248, 250, 252, 0.8);
-  color: #1e40af;
-  border-left-color: #1e40af;
+  background: rgba(250, 249, 246, 0.8);
+  color: #D4AF37;
+  border-left-color: #D4AF37;
   transform: translateX(8px);
-  box-shadow: 0 4px 12px rgba(30, 64, 175, 0.1);
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.1);
 }
 
 .sidebar-link.sidebar-anim:hover::before {
@@ -646,15 +641,15 @@
 
 .sidebar-arrow.open {
   transform: rotate(-135deg) scale(1.1);
-  border-color: #1e40af;
+  border-color: #D4AF37;
 }
 
 .sidebar-dropdown-list {
-  background: linear-gradient(135deg, rgba(248, 250, 252, 0.9), rgba(241, 245, 249, 0.9));
+  background: linear-gradient(135deg, rgba(250, 249, 246, 0.9), rgba(245, 245, 245, 0.9));
   backdrop-filter: blur(10px);
   border-radius: 0 0 16px 16px;
   box-shadow: 
-    0 4px 16px 0 rgba(30, 64, 175, 0.08),
+    0 4px 16px 0 rgba(212, 175, 55, 0.08),
     0 2px 4px 0 rgba(0, 0, 0, 0.05);
   margin: 0 12px 8px 12px;
   overflow: hidden;
@@ -676,7 +671,7 @@
 
 .sidebar-dropdown-item {
   padding: 14px 24px 14px 36px;
-  color: #1e293b;
+  color: #004B49;
   font-size: 0.95rem;
   font-weight: 500;
   cursor: pointer;
@@ -695,15 +690,15 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, rgba(30, 64, 175, 0.08), rgba(59, 130, 246, 0.08));
+  background: linear-gradient(90deg, rgba(212, 175, 55, 0.08), rgba(212, 194, 144, 0.08));
   transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .sidebar-dropdown-item:hover {
-  background: rgba(224, 231, 255, 0.3);
-  color: #1e40af;
+  background: rgba(212, 194, 144, 0.3);
+  color: #D4AF37;
   transform: translateX(8px);
-  box-shadow: 0 2px 8px rgba(30, 64, 175, 0.1);
+  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.1);
 }
 
 .sidebar-dropdown-item:hover::before {
@@ -713,7 +708,7 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .navbar-container {
-    padding: 0 16px;
+    padding: 1rem 16px;
   }
   
   .navbar-container .logo-text {
@@ -726,7 +721,7 @@
   }
   
   body {
-    padding-top: 70px;
+    padding-top: 0;
   }
   
   /* Adjust login button for tablet */
@@ -743,7 +738,7 @@
 
 @media (max-width: 480px) {
   .navbar-container {
-    padding: 0 12px;
+    padding: 1rem 12px;
   }
   
   .navbar-container .logo-text {
@@ -756,7 +751,7 @@
   }
   
   body {
-    padding-top: 65px;
+    padding-top: 0;
   }
   
   /* Smaller login button for mobile */
@@ -768,7 +763,7 @@
 
 /* Add body padding to account for fixed navbar */
 body {
-  padding-top: 75px;
+  padding-top: 0;
   overflow-x: hidden; /* Prevent horizontal scroll */
   font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
@@ -807,7 +802,7 @@ body {
   background: rgba(55, 65, 81, 0.05);
   cursor: pointer;
   border-radius: 12px;
-  color: #374151;
+  color: #004B49;
   font-size: 24px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   margin-left: 1rem;
@@ -822,15 +817,15 @@ body {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, rgba(30, 64, 175, 0.1), rgba(59, 130, 246, 0.1));
+  background: linear-gradient(90deg, rgba(212, 175, 55, 0.1), rgba(212, 194, 144, 0.1));
   transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hamburger-menu:hover {
-  background: rgba(30, 64, 175, 0.1);
-  color: #1e40af;
+  background: rgba(212, 175, 55, 0.1);
+  color: #D4AF37;
   transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(30, 64, 175, 0.15);
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.15);
 }
 
 .hamburger-menu:hover::before {
@@ -850,7 +845,7 @@ body {
     margin-left: auto;
   }
   .navbar-container {
-    padding-right: 1rem;
+    padding: 1rem;
   }
   
   /* Hide desktop login on mobile */

@@ -48,8 +48,8 @@
     position: relative;
     overflow: hidden;
     /* Override body padding for signin page */
-    margin-top: -70px;
-    padding-top: calc(2rem);
+    margin-top: 0;
+    padding-top: 2rem;
 }
 
 /* Back Button */
@@ -437,7 +437,7 @@
         padding: 1rem;
         padding-top: 4rem;
         /* Ensure content is below back button */
-        margin-top: -70px;
+        margin-top: 0;
     }
 
     .signin-page .signin-container {
