@@ -99,7 +99,7 @@ const LoadingScreen = ({ onComplete }) => {
                 }}
               >
                 <div className="loading-logo-bg">
-                  <Ship size={48} color="#1e40af" />
+                  <Ship size={48} color="#004B49" />
                 </div>
               </motion.div>
               
